@@ -3,13 +3,19 @@
 /**
  * main - Entry point
  *
- * return: always return 1 (Error)
+ * Return: Always 1 (Error)
  */
-
 int main(void)
 {
-const char msg[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
-const int len = sizeof(msg) - 1;
-write(STDERR_FILENO, msg, len);
+char *msg = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+int len = 0;
+
+while (msg[len] != '\0')
+{
+len++;
+}
+
+write(2, msg, len);
 return (1);
+
 }

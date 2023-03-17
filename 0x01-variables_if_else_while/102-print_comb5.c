@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
  * main - Entry point for the program
- *Return: Always 0 (Success)
+ *Return: Always 1 (Success)
 */
 
 int main(void)
@@ -23,5 +23,5 @@ putchar(' ');
 }
 }
 }
-return (0);
+return (1);
 }

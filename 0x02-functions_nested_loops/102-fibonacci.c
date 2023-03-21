@@ -6,17 +6,16 @@
 
 int main(void)
 {
-int a = 1, b = 2, c;
-int count = 0;
-printf("%d, %d", a, b);
-count = 2;
-while (count < 50)
+unsigned long a = 1, b = 2, next;
+int i, count = 50;
+
+printf("%lu, %lu", a, b);
+for (i = 2; i < count; i++)
 {
-c = a + b;
-printf(", %d", c);
+next = a + b;
+printf(", %lu", next);
 a = b;
-b = c;
-count++;
+b = next;
 }
 printf("\n");
 return (0);

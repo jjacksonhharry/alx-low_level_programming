@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
  * main - program entry point
- * @agrc: parameter 1
- * @agrv: parameter 2
+ * @argc: parameter 1
+ * @argv: parameter 2
  * Return: always 0 on success
  */
 int main(int argc, char *argv[])

@@ -145,3 +145,54 @@ void shash_table_print(const shash_table_t *ht)
 	}
 	printf("}\n");
 }
+/**
+ * shash_table_print_rev - Prints the sorted hash table in reverse order
+ * @ht: The sorted hash table
+ */
+void shash_table_print_rev(const shash_table_t *ht)
+{
+	shash_node_t *node;
+	int flag = 0;
+
+	if (ht == NULL)
+		return;
+
+	printf("{");
+	node = ht->stail;
+	while (node != NULL)
+	{
+		if (flag == 1)
+			printf(", ");
+		printf("'%s': '%s'", node->key, node->value);
+		flag = 1;
+		node = node->sprev;
+	}
+	printf("}\n");
+}
+/**
+ * shash_table_delete -Deletes a sorted hash table and frees the memory
+ * @ht: The sorted hash table
+ */
+void shash_table_delete(shash_table_t *ht)
+{
+	unsigned long int i;
+	shash_node_t *node, *temp;
+
+	if (ht == NULL)
+		return;
+
+	for (i = 0; i < ht->size; i++)
+	{
+		node = ht->array[i];
+		while (node != NULL)
+		{
+			temp = node;
+			node = node->next;
+			free(temp->key);
+			free(temp->value);
+			free(temp);
+		}
+	}
+	free(ht->array);
+	free(ht);
+}
